@@ -1,0 +1,2 @@
+class BrandingColor < ApplicationRecord
+end
