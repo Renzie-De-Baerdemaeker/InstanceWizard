@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  primary_color: MyString
+  secondary_color_light: MyString
+  secondary_color_dark: MyString
+  accent_color: MyString
+
+two:
+  name: MyString
+  primary_color: MyString
+  secondary_color_light: MyString
+  secondary_color_dark: MyString
+  accent_color: MyString
