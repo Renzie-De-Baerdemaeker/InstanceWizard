@@ -6,6 +6,11 @@ class BrandingsController < ApplicationController
     @branding = Branding.find(params[:id])
   end
 
+  def preview
+    @branding = Branding.find(params[:id])
+  end
+  
+
   def new         
     @branding = Branding.new
   end
@@ -13,7 +18,7 @@ class BrandingsController < ApplicationController
   def create
     @branding = Branding.new(branding_params)
     if @branding.save
-      redirect_to @branding
+      redirect_to preview_branding_path(@branding)
     else
       render :new, status: :unprocessable_entity
     end
