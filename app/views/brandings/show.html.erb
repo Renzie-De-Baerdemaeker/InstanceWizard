@@ -1,0 +1,7 @@
+<h1><%= @branding.name %></h1>
+
+    <%= image_tag @branding.logo.representation(resize_to_limit: [500, 500]) %>
+    <%= image_tag @branding.favicon.representation(resize_to_limit: [500, 500]) %>
+    <%= image_tag @branding.background.representation(resize_to_limit: [500, 500]) %>
+ 
+<%= link_to "Back", brandings_path %>

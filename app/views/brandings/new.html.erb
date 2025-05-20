@@ -1,0 +1,24 @@
+<h1>New branding</h1>
+
+<%= form_with model: @branding do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :logo %>
+    <%= form.file_field :logo %>
+  </div>
+
+  <div>
+    <%= form.label :favicon %>
+    <%= form.file_field :favicon %>
+  </div>
+
+  <div>
+    <%= form.label :background %>
+    <%= form.file_field :background %>
+  </div>
+  <%= form.submit %>
+<% end %>
