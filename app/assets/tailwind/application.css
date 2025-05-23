@@ -6,8 +6,8 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 /* Import theme files */
-@import "./themes/light.css";
-@import "./themes/dark.css";
+@import "./themes/light.css.erb";
+@import "./themes/dark.css.erb";
 
 @layer components {
   [x-cloak] {

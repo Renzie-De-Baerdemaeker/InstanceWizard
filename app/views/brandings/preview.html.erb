@@ -1,3 +1,29 @@
+<%= form_with(model: @branding, data: {controller: "colorpicker_controller"}) do |form| %>
+    <div data-controller="colorpicker">
+      <div>
+        <%= form.color_field :primary_color, data: { colorpicker_target: "color", variable: "--color-primary", action: "input->colorpicker#update"} %>
+        <%= form.label :primary %>
+      </div>
+  
+      <div>
+        <%= form.color_field :secondary_color_light, data: { colorpicker_target: "color", variable: "--color-secondary", action: "input->colorpicker#update"} %>
+        <%= form.label :secondary_light %>
+
+      </div>
+  
+      <div>
+        <%= form.color_field :secondary_color_dark, data: { colorpicker_target: "color", variable: "--color-secondary", action: "input->colorpicker#update"} %>
+        <%= form.label :secondary_dark %>
+      </div>
+  
+      <div>
+        <%= form.color_field :accent_color, data: { colorpicker_target: "color", variable: "--color-accent", action: "input->colorpicker#update"} %>
+        <%= form.label :accent %>
+      </div>  
+    <%= form.submit "Save" %>
+<% end %>
+
+<%# Login page #%>
 <!DOCTYPE html>
 <html data-theme="light" class="h-full w-full overflow-hidden">
    <head>
@@ -53,7 +79,7 @@
                      <h2 class="title">Log in</h2>
                      <p class="opacity-80">Enter your credentials to access your account</p>
                   </header>
-                  <form id="login-form" hx-post="/login" hx-indicator="#spinner" hx-boost="true" hx-target="#content-block" class="flex flex-col gap-6 text-base">
+                  <form id="login-form" class="flex flex-col gap-6 text-base">
                      <fieldset class="fieldset">
                         <legend class="fieldset-legend">Email</legend>
                         <input id="email" name="email" type="email" placeholder="Email" required="" class="input input-primary validator w-full">
@@ -78,7 +104,7 @@
                         </div>
                      </fieldset>
                      <div id="login-form-error" class="text-error"></div>
-                     <button type="submit" class="btn-primary btn w-full">
+                     <button class="btn-primary btn w-full">
                      <span class="button-text">Login</span>
                      </button>
                      <div class="text-base-content/50 text-center text-xs">Version: 3.0.0</div>

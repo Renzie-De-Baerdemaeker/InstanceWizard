@@ -3,8 +3,8 @@
   color-scheme: light;
   prefers-color-scheme: light;
   --color-base-content: #101828;
-  --color-primary: oklch(65% 0.2 235);
-  --color-secondary: oklch(93% 0.05 235);
-  --color-accent: oklch(61.48% 0.1657 141.73);
+  --color-primary:  <%= @branding&.primary_color%>;
+  --color-secondary: <%= @branding&.secondary_color%>;
+  --color-accent: <%= @branding&.accent_color%>;
   --color-neutral: var(--color-gray-300);
 }
