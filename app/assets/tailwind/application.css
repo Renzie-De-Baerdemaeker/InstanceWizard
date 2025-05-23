@@ -1,2 +1,42 @@
-@import "./input.css";
-@import "./output.css";
+@import "tailwindcss";
+@import "./fonts/inter/inter.css" layer(base);
+
+@plugin 'daisyui';
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* Import theme files */
+@import "./themes/light.css";
+@import "./themes/dark.css";
+
+@layer components {
+  [x-cloak] {
+    @apply !hidden;
+  }
+  .fieldset-legend {
+    @apply !text-sm !font-normal !text-inherit;
+  }
+  .text-error {
+    @apply [&:empty]:hidden;
+  }
+  .input {
+    &:user-valid,
+    &:has(:user-valid) {
+      &,
+      &:focus,
+      &:checked,
+      &[aria-checked="true"],
+      &:focus-within {
+        --input-color: var(--color-primary) !important;
+      }
+    }
+  }
+}
+
+@utility title {
+  @apply text-2xl leading-8 font-medium tracking-[-1px];
+}
+
+@utility primary-link {
+  @apply text-primary/90 hover:text-primary;
+}
