@@ -7,8 +7,9 @@ export default class extends Controller {
     });
   }
 
-  static targets = ["color"];
+  static targets = ["color", "login", "overview"];
 
+  // Switching colors
   update(event) {
     this.updateCSSVariable(event.target);
   }
@@ -20,5 +21,16 @@ export default class extends Controller {
     if (variable && color) {
       document.documentElement.style.setProperty(variable, color);
     }
+  }
+
+  // Switching pages
+  showLogin() {
+    this.loginTarget.classList.remove("hidden");
+    this.overviewTarget.classList.add("hidden");
+  }
+
+  showOverview() {
+    this.loginTarget.classList.add("hidden");
+    this.overviewTarget.classList.remove("hidden");
   }
 }
