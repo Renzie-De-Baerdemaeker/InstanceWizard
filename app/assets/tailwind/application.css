@@ -1,13 +1,11 @@
 @import "tailwindcss";
 @import "./fonts/inter/inter.css" layer(base);
+@import "./themes/light.css.erb";
+@import "./themes/dark.css.erb";
 
 @plugin 'daisyui';
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
-/* Import theme files */
-@import "./themes/light.css.erb";
-@import "./themes/dark.css.erb";
 
 @layer components {
   [x-cloak] {
@@ -33,6 +31,8 @@
   }
 }
 
+
+
 @utility title {
   @apply text-2xl leading-8 font-medium tracking-[-1px];
 }
@@ -40,3 +40,25 @@
 @utility primary-link {
   @apply text-primary/90 hover:text-primary;
 }
+
+@utility btn-bar-enabled {
+  @apply btn-primary border-none opacity-90 hover:cursor-pointer;
+}
+
+/* Static Color Filters for b64 icons, filters generated based on icons having BLACK stroke color */
+@utility filter-green {
+  filter: invert(44%) sepia(86%) saturate(382%) hue-rotate(99deg) brightness(98%) contrast(92%); /* for #20a464 */
+}
+
+@utility filter-blue {
+  filter: invert(56%) sepia(41%) saturate(660%) hue-rotate(156deg) brightness(90%) contrast(91%); /* for #409bca */
+}
+
+@utility filter-white {
+  filter: invert(100%) sepia(0%) saturate(7499%) hue-rotate(32deg) brightness(100%) contrast(100%);
+}
+
+@utility filter-content {
+  filter: invert(8%) sepia(27%) saturate(467%) hue-rotate(173deg) brightness(71%) contrast(94%);
+}
+

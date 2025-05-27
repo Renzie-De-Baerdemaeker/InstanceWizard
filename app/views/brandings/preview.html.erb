@@ -500,7 +500,7 @@
                   <div class="flex self-center">
                     <div class="flex w-full justify-end overflow-visible">
                       <div class=" flex grow justify-end gap-2">
-                        <fieldset class="fieldset min-w-48 border-neutral group hover:border-primary flex h-10 items-center justify-start rounded-lg border hover:bg-neutral-400/10">
+                        <fieldset class="fieldset min-w-48 border-gray-300 group hover:border-primary flex h-10 items-center justify-start rounded-lg border hover:bg-neutral-400/10">
                           <div class="text-base-content/50 group-hover:text-primary ml-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.715 -0.715 20 20" height="20" width="20">
                               <g id="magnifying-glass--glass-search-magnifying">
@@ -515,7 +515,7 @@
                         <form id="multi-select-filter" hx-get="/taskflow" hx-target="#content-block" hx-trigger="change" hx-push-url="false" hx-boost="true" class="m-0" hx-include="#search-input">
                           <div class="relative" x-data="{ open: false }">
                             <!-- Trigger Button -->
-                            <button @click="open = !open" type="button" class="primary-icon-hover border-neutral hover:border-primary flex h-10 w-full items-center justify-between rounded-lg border p-2">
+                            <button @click="open = !open" type="button" class="primary-icon-hover border-gray-300 hover:border-primary flex h-10 w-full items-center justify-between rounded-lg border p-2">
                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.715 -0.715 20 20" height="20" width="20">
                                 <g id="filter-2--funnel-filter-angle-oil">
                                   <path id="Vector" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M17.906785714285714 0.6632142857142858H0.6632142857142858l6.632142857142858 9.285v7.958571428571429l3.9792857142857145 -2.652857142857143v-5.305714285714286l6.632142857142858 -9.285Z" stroke-width="1.43"></path>
@@ -685,7 +685,7 @@
                         <div id="grid" class="flex flex-col">
                           <div class="grid grid-cols-1 gap-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4" x-data="{ openModals: [] }">
                             <div class="text-decoration-none bg-base-100/90 
-                                             block min-w-72 cursor-pointer rounded-xl border-2" hx-get="/taskflow/79aeb6c4-9e43-4801-ad24-ee5259963fd5" hx-push-url="true" hx-trigger="click">
+                                             block min-w-72 cursor-pointer rounded-xl border-2 border-gray-300" hx-get="/taskflow/79aeb6c4-9e43-4801-ad24-ee5259963fd5" hx-push-url="true" hx-trigger="click">
                               <div class="flex w-full flex-col items-center justify-start gap-4 p-5" x-data="{ openModal: false, posX: 0, posY: 0, itemId: null }">
                                 <div class="flex w-full items-start justify-between gap-2 text-lg">
                                   <div class="flex w-full items-start truncate">
@@ -758,7 +758,7 @@
                               </div>
                             </div>
                             <div class="text-decoration-none bg-base-100/90 
-                                             block min-w-72 cursor-pointer rounded-xl border-2" hx-get="/taskflow/12be8d4f-4ab7-429e-9660-a724a5e44598" hx-push-url="true" hx-trigger="click">
+                                             block min-w-72 cursor-pointer rounded-xl border-2 border-gray-300" hx-get="/taskflow/12be8d4f-4ab7-429e-9660-a724a5e44598" hx-push-url="true" hx-trigger="click">
                               <div class="flex w-full flex-col items-center justify-start gap-4 p-5" x-data="{ openModal: false, posX: 0, posY: 0, itemId: null }">
                                 <div class="flex w-full items-start justify-between gap-2 text-lg">
                                   <div class="flex w-full items-start truncate">
@@ -807,7 +807,7 @@
                                       <span class="text-base-content/70">Tasks Completed:</span>
                                       <span><span class="font-medium">0</span><span class="text-base-content/70"> / 322</span></span>
                                     </div>
-                                    <progress class="progress progress-accent" value="0" max="322"></progress>
+                                    <progress class="progress progress-accent" value="15" max="322"></progress>
                                   </div>
                                 </div>
                                 <div class="flex w-full items-start justify-between gap-2 text-lg">
@@ -821,7 +821,7 @@
                                     <span>28/08/2025</span>
                                   </div>
                                   <div class="text-base-content/50 flex items-center gap-1 rounded-md border px-1.5 py-0.5 text-sm">
-                                    <span>0</span>
+                                    <span>8</span>
                                     <span>Members</span>
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                       <path d="M10 12.7517C10.5553 12.9133 11.1425 13 11.75 13C12.7358 13 13.6683 12.7718 14.4976 12.3652C14.4992 12.327 14.5 12.2886 14.5 12.25C14.5 10.7312 13.2688 9.5 11.75 9.5C10.8046 9.5 9.97068 9.97701 9.47571 10.7035M10 12.7517V12.75C10 12.0081 9.80989 11.3105 9.47571 10.7035M10 12.7517C9.99999 12.7755 9.99978 12.7992 9.99939 12.8229C8.75824 13.5702 7.30432 14 5.75 14C4.19568 14 2.74176 13.5702 1.50061 12.8229C1.50021 12.7986 1.5 12.7743 1.5 12.75C1.5 10.4028 3.40279 8.5 5.75 8.5C7.35528 8.5 8.75269 9.38999 9.47571 10.7035M8 4.25C8 5.49264 6.99264 6.5 5.75 6.5C4.50736 6.5 3.5 5.49264 3.5 4.25C3.5 3.00736 4.50736 2 5.75 2C6.99264 2 8 3.00736 8 4.25ZM13.5 5.75C13.5 6.7165 12.7165 7.5 11.75 7.5C10.7835 7.5 10 6.7165 10 5.75C10 4.7835 10.7835 4 11.75 4C12.7165 4 13.5 4.7835 13.5 5.75Z" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
