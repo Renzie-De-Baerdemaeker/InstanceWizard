@@ -33,4 +33,11 @@ export default class extends Controller {
     this.loginTarget.classList.add("hidden");
     this.overviewTarget.classList.remove("hidden");
   }
+
+  toggleTheme = () => {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
 }

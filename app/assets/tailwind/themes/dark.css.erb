@@ -3,8 +3,8 @@ name: "dark";
 color-scheme: dark;
 prefers-color-scheme: dark;
 --color-base-content: #f2f4f7;
---color-primary: oklch(65% 0.2 235);
---color-secondary: oklch(85% 0.1 235);
---color-accent: oklch(61.48% 0.1657 141.73);
+--color-primary:  <%= @branding&.primary_color%>;
+--color-secondary: <%= @branding&.secondary_color%>;
+--color-accent: <%= @branding&.accent_color%>;
 --color-neutral: var(--color-gray-700);
 }
