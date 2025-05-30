@@ -11,7 +11,17 @@ export default class extends Controller {
 
   // Switching colors
   update(event) {
-    this.updateCSSVariable(event.target);
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const id = event.target.id;
+
+    const isAllowed = !(
+      (currentTheme === "light" && id === "branding_secondary_color_dark") ||
+      (currentTheme === "dark" && id === "branding_secondary_color_light")
+    );
+
+    if (isAllowed) {
+      this.updateCSSVariable(event.target);
+    }
   }
 
   updateCSSVariable(colorInput) {
