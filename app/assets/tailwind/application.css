@@ -31,7 +31,24 @@
   }
 }
 
+@layer utilities {
+    .icon-mask {
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
 
+  .modal.modal-right {
+    background-color: transparent !important;
+    justify-items: right;
+    all: unset;
+    position: fixed;
+    top: 200;
+    right: 100;
+  }
+}
 
 @utility title {
   @apply text-2xl leading-8 font-medium tracking-[-1px];
@@ -62,3 +79,11 @@
   filter: invert(8%) sepia(27%) saturate(467%) hue-rotate(173deg) brightness(71%) contrast(94%);
 }
 
+/* icon mask for b64 icons for dynamic color changes */
+@utility icon-mask {
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}

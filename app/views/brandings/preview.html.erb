@@ -805,7 +805,7 @@
                                   <div class="flex w-full flex-col items-center justify-between gap-2">
                                     <div class="flex w-full gap-2 text-xs">
                                       <span class="text-base-content/70">Tasks Completed:</span>
-                                      <span><span class="font-medium">0</span><span class="text-base-content/70"> / 322</span></span>
+                                      <span><span class="font-medium">17</span><span class="text-base-content/70"> / 322</span></span>
                                     </div>
                                     <progress class="progress progress-accent" value="15" max="322"></progress>
                                   </div>
@@ -853,6 +853,125 @@
         </dialog>
       </div>
       <script src="taskflows_files/download_files.js"></script>
+      <%# Modal #%>
+      <dialog id="modal" class="modal modal-right" open="">
+        <div class="modal-box max-w-max" id="modal-content">
+          <div class="max-h-[80vh] overflow-y-auto p-4">
+            <div class="text-primary text-2xl font-bold">Edit Flow</div>
+            <form autocomplete="off" id="modal-form" class="my-2 space-y-4" hx-indicator="#spinner" hx-put="/taskflow/79aeb6c4-9e43-4801-ad24-ee5259963fd5">
+              <div class="flex flex-col items-start justify-start">
+                <div class="mb-4 w-full">
+                  <label class="label">
+                    <span class="label-text text-base">Flow Name</span>
+                  </label>
+                  <input name="name" type="text" placeholder="Flow Name" class="input input-bordered input-primary w-full" value="Task Flow 1">
+                </div>
+                <div id="flow-name-error" class="text-error"></div>
+                <div class="mb-4 w-full">
+                  <label class="label">
+                    <span class="label-text text-base">Flow Description</span>
+                  </label>
+                  <textarea name="description" placeholder="Description" class="textarea textarea-bordered textarea-primary w-full" rows="4"></textarea>
+                </div>
+                <div class="mb-4 w-full">
+                  <label class="label cursor-pointer">
+                    <span class="label-text text-base">Grouping Tasks</span>
+                    <input type="checkbox" name="is_grouping" class="checkbox-primary checkbox" value="true">
+                  </label>
+                </div>
+                <div class="mb-4">
+                  <label class="label">
+                    <span class="label-text text-base">Due Date (optional)</span>
+                  </label>
+                  <input name="due_date" type="date" id="due_date" class="input-primary w-full" value="2025-08-27">
+                </div>
+                <div class="mt-4 mb-4 w-full">
+                  <div class="collapse-arrow bg-lightblue collapse rounded-xl border">
+                    <input type="checkbox">
+                    <div class="text-md collapse-title text-primary font-medium">
+                      <span>Flow Owner(s)</span>
+                    </div>
+                    <div class="collapse-content">
+                      <div class="mb-4">
+                        <div class="border-primary/60 bg-base-100 hover:border-primary flex min-w-48 items-center justify-start rounded-md border-2 md:w-full">
+                          <div class="ml-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.715 -0.715 20 20" height="20" width="20">
+                              <g id="magnifying-glass--glass-search-magnifying">
+                                <path id="Vector" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M7.958571428571429 15.253928571428572c4.029119635714286 0 7.295357142857143 -3.2662375071428573 7.295357142857143 -7.295357142857143S11.987691064285716 0.6632142857142858 7.958571428571429 0.6632142857142858 0.6632142857142858 3.929451792857143 0.6632142857142858 7.958571428571429s3.2662375071428573 7.295357142857143 7.295357142857143 7.295357142857143Z" stroke-width="1.43"></path>
+                                <path id="Vector_2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M17.906785714285714 17.906785714285714 13.264285714285716 13.264285714285716" stroke-width="1.43"></path>
+                              </g>
+                            </svg>
+                          </div>
+                          <input type="search" name="search" placeholder="Search for a user" class="input text-primary w-full border-none focus:outline-hidden" hx-post="/users/search" hx-trigger="input[target.value.length &gt; 2] changed delay:500ms" hx-target="#active-search" hx-encoding="application/x-www-form-urlencoded" hx-params="search, selected" autocomplete="off">
+                        </div>
+                      </div>
+                      <div class="mb-2">
+                        <div id="user-invite-error" class="text-error"></div>
+                      </div>
+                      <div id="active-search">
+                        <script src="modal_files/active_search.js"></script>
+                        <div hx-post="/users/search" hx-trigger="change" hx-target="#active-search" hx-params="search, selected" hx-encoding="application/x-www-form-urlencoded" hx-indicator=".htmx-indicator">
+                          <div class="overflow-auto">
+                            <div class="mb-2">
+                              <span class="text-sm">The following user(s) were found:</span>
+                            </div>
+                            <div class=" bg-lightblue flex items-center justify-between space-x-4 rounded-lg p-3">
+                              <input type="checkbox" name="selected" value="c6d3157b-878e-435e-9f00-9b229ad49035" class="checkbox-primary checkbox" id="user-c6d3157b-878e-435e-9f00-9b229ad49035" checked="checked">
+                              <label for="user-c6d3157b-878e-435e-9f00-9b229ad49035" class="grow cursor-pointer">
+                                <div class="text-sm font-medium">
+                                  Admin Super
+                                </div>
+                                <div class="text-sm text-gray-600">dev@alkmist.com</div>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-4 mb-4 w-full">
+                  <div class="collapse-arrow bg-lightblue collapse rounded-xl border">
+                    <input type="checkbox">
+                    <div class="text-md collapse-title text-primary font-medium">
+                      <span>Workspace(s) (optional)</span>
+                    </div>
+                    <div class="collapse-content">
+                      <div class="mb-6">
+                        <div class="border-primary/60 bg-base-100 hover:border-primary flex min-w-48 items-center justify-start rounded-md border-2 md:w-full">
+                          <div class="ml-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-0.715 -0.715 20 20" height="20" width="20">
+                              <g id="magnifying-glass--glass-search-magnifying">
+                                <path id="Vector" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M7.958571428571429 15.253928571428572c4.029119635714286 0 7.295357142857143 -3.2662375071428573 7.295357142857143 -7.295357142857143S11.987691064285716 0.6632142857142858 7.958571428571429 0.6632142857142858 0.6632142857142858 3.929451792857143 0.6632142857142858 7.958571428571429s3.2662375071428573 7.295357142857143 7.295357142857143 7.295357142857143Z" stroke-width="1.43"></path>
+                                <path id="Vector_2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M17.906785714285714 17.906785714285714 13.264285714285716 13.264285714285716" stroke-width="1.43"></path>
+                              </g>
+                            </svg>
+                          </div>
+                          <input type="search" name="search_org" placeholder="Search workspaces" class="input text-primary w-full border-none focus:outline-hidden" hx-post="/organisations/search" hx-trigger="input[target.value.length &gt; 2] changed delay:500ms, keyup[target.value.length == 0]" hx-target="#active-search-org" hx-encoding="application/x-www-form-urlencoded" hx-params="search_org,selected_org">
+                        </div>
+                      </div>
+                      <div id="active-search-org">
+                        <script src="modal_files/active_search.js"></script>
+                        <div hx-post="/organisations/search" hx-trigger="change" hx-target="#active-search-org" hx-params="search_org, selected_org" hx-encoding="application/x-www-form-urlencoded" hx-indicator=".htmx-indicator">
+                          <input type="hidden" name="selected_org" value="">
+                          <div class="overflow-auto">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center justify-between gap-0 pt-2">
+                <button type="button" onclick="closeModal()" class="btn btn-outline hover:bg-secondary basis-1/4">
+                  Cancel
+                </button>
+                <button id="non-loader" type="submit" class="btn btn-primary basis-1/4">
+                  <span class="button-text"> Edit </span>
+                </button>
+              </div>
+            </form>
+          </div>
+          <script src="modal_files/modal.js"></script></div>
+      </dialog>
     </div>
     <div class="toast toast-end rounded-lg" id="toast-container" sse-swap="toast-update">
       <div class="bg-base-100/90 rounded-lg" x-data="showToast" x-show="show" x-transition.duration.500ms="" style="display: none;">
