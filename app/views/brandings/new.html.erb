@@ -1,24 +1,32 @@
-<h1>Branding</h1>
+<div class="flex items-center justify-center min-h-screen">
+  <div class="card bg-base-100 w-96 shadow-xl">
+    <div class="card-body">
+      <%= form_with model: @branding do |form| %>
+      <h1 class="card-title">Branding name & assets</h1>
+        <div class="form-control">
+          <%= form.label :name, class: "label" %>
+          <%= form.text_field :name, class: "input input-bordered" %>
+        </div>
 
-<%= form_with model: @branding do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+        <div class="form-control">
+          <%= form.label :logo, class: "label" %>
+          <%= form.file_field :logo, class: "file-input file-input-bordered" %>
+        </div>
 
-  <div>
-    <%= form.label :logo %>
-    <%= form.file_field :logo %>
-  </div>
+        <div class="form-control">
+          <%= form.label :favicon, class: "label" %>
+          <%= form.file_field :favicon, class: "file-input file-input-bordered" %>
+        </div>
 
-  <div>
-    <%= form.label :favicon %>
-    <%= form.file_field :favicon %>
-  </div>
+        <div class="form-control">
+          <%= form.label :background, class: "label" %>
+          <%= form.file_field :background, class: "file-input file-input-bordered" %>
+        </div>
 
-  <div>
-    <%= form.label :background %>
-    <%= form.file_field :background %>
+        <div class="mt-4">
+          <%= form.submit "Next", class: "btn btn-primary w-full" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <%= form.submit %>
-<% end %>
+</div>
