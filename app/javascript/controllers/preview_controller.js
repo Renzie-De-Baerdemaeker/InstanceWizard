@@ -1,5 +1,4 @@
 import { Controller } from "@hotwired/stimulus";
-
 export default class extends Controller {
   connect() {
     this.colorTargets.forEach((target) => {
@@ -44,10 +43,28 @@ export default class extends Controller {
     this.overviewTarget.classList.remove("hidden");
   }
 
-  toggleTheme = () => {
+  toggleTheme = (e) => {
     const currentTheme = document.documentElement.getAttribute("data-theme");
     const newTheme = currentTheme === "dark" ? "light" : "dark";
+    const valueLight = document.getElementById(
+      "branding_secondary_color_light"
+    ).value;
+    const valueDark = document.getElementById(
+      "branding_secondary_color_dark"
+    ).value;
+    const variable = e.target.dataset.variable;
+
     document.documentElement.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
+    console.log(variable);
+    console.log(valueLight);
+    console.log(valueDark);
+
+    // If new theme is light mode, than change value of secondarycolor to light else change to dark
+    if (newTheme === "light") {
+      document.documentElement.style.setProperty(variable, valueLight);
+    } else {
+      document.documentElement.style.setProperty(variable, valueDark);
+    }
   };
 }
