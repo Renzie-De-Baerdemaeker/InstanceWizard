@@ -5,22 +5,22 @@
       <h1 class="card-title">Branding name & assets</h1>
         <div class="form-control">
           <%= form.label :name, class: "label" %>
-          <%= form.text_field :name, class: "input input-bordered" %>
+          <%= form.text_field :name, required: true,class: "input input-bordered" %>
         </div>
 
         <div class="form-control">
           <%= form.label :logo, class: "label" %>
-          <%= form.file_field :logo, class: "file-input file-input-bordered" %>
+          <%= form.file_field :logo, required: true, class: "file-input file-input-bordered" %>
         </div>
 
         <div class="form-control">
           <%= form.label :favicon, class: "label" %>
-          <%= form.file_field :favicon, class: "file-input file-input-bordered" %>
+          <%= form.file_field :favicon, required: true, class: "file-input file-input-bordered" %>
         </div>
 
         <div class="form-control">
           <%= form.label :background, class: "label" %>
-          <%= form.file_field :background, class: "file-input file-input-bordered" %>
+          <%= form.file_field :background, required: true, class: "file-input file-input-bordered" %>
         </div>
 
         <div class="mt-4">
