@@ -9,9 +9,8 @@ class BrandingsController < ApplicationController
   def preview
     @branding = Branding.find(params[:id])
   end
-  
 
-  def new         
+  def new
     @branding = Branding.new
   end
 
@@ -28,5 +27,4 @@ class BrandingsController < ApplicationController
     def branding_params
       params.expect(branding: [ :name, :logo, :favicon, :background ])
     end
-
 end
