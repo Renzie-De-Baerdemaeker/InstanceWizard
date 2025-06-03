@@ -2,9 +2,9 @@
   <div class="card bg-base-100 w-96 shadow-xl">
     <div class="card-body">
       <%= form_with model: @branding do |form| %>
-      <h1 class="card-title">Branding name & assets</h1>
+      <h1 class="card-title">Upload assets</h1>
         <div class="form-control">
-          <%= form.label :name, class: "label" %>
+          <%= form.label :branding_name, class: "label" %>
           <%= form.text_field :name, required: true,class: "input input-bordered" %>
         </div>
 
