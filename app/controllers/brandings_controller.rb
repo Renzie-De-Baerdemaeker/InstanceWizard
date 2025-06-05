@@ -8,6 +8,7 @@ class BrandingsController < ApplicationController
   end
 
   def preview
+    redirect_to controller: :admins, action: :index
   end
 
   def new

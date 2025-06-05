@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
-  get "admins/index"
-  get "admins/show"
-  get "admins/new"
-  get "admins/create"
-  get "admins/edit"
-  get "admins/update"
-  get "admins/destroy"
+  resources :admins
   resources :brandings do
     member do
       get :preview
