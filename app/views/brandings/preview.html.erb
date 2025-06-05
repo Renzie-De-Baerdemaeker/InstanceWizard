@@ -1,8 +1,7 @@
-<div class="bg-purple-400">
 <div class="flex items-center h-screen w-screen bg-gray-100" data-controller="preview">
    <div class="self-center bg-white m-6 card" data-theme="light">
       <h1 class="card-title self-center mt-6">Choose branding colors</h1>
-      <%= form_with(model: @branding, data: {controller: "preview_controller"}) do |form| %>
+      <%= form_with(model: @branding, url: add_colors_branding_path(@branding), method: :patch, data: {controller: "preview_controller"}) do |form| %>
       <div data-controller="preview", class="flex flex-col m-10 w-50">
          <div class="flex items-center mb-4">
             <%= form.color_field :primary_color, data: { preview_target: "color", variable: "--color-primary", action: "input->preview#update"}, class: "rounded-full w-10 h-10 cursor-pointer mr-4" %>
@@ -71,7 +70,7 @@
                   <form id="login-form" hx-post="/login" hx-indicator="#spinner" hx-boost="true" hx-target="#content-block" class="flex flex-col gap-6 text-base">
                      <fieldset class="fieldset">
                         <legend class="fieldset-legend">Email</legend>
-                        <input id="email" name="email" type="email" placeholder="Email" required="" class="input input-primary validator w-full" value="dev@alkmist.com">
+                        <input id="email" name="email" type="email" placeholder="Email" required="" class="input input-primary validator w-full" value="">
                      </fieldset>
                      <fieldset class="fieldset">
                         <legend class="fieldset-legend flex w-full justify-between">
@@ -1012,4 +1011,3 @@
          </div>
       </div>
    </div>
-</div>

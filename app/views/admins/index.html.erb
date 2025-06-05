@@ -1,4 +1,35 @@
-<div>
-  <h1 class="font-bold text-4xl">Admins#index</h1>
-  <p>Find me in app/views/admins/index.html.erb</p>
+<div class="w-screen h-screen flex justify-center items-center">
+  <div class="bg-white rounded-lg p-6">
+    <h1 class="font-bold text-4xl">Super Admins</h1>
+    <div class="flex justify-between">
+      <%= link_to "Add Admin", new_admin_path, class:"btn" %>
+      <button class="btn">Delete</button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+            First name
+          </th>
+          <th>
+            Last name
+          </th>
+          <th>
+            Email address
+          </th>
+        </tr>
+      </thead>
+        <% @admins.each do |admin| %>
+          <div class="list-row">
+            <% admin.first_name %>
+            <%= admin.last_name %>
+            <%= admin.email %>
+          </div>
+        <% end %>
+    </table>
+    <div class="flex justify-between">
+      <button class="btn">Back</button>
+      <button class="btn">Finish</button>
+    </div>
+  </div>
 </div>
