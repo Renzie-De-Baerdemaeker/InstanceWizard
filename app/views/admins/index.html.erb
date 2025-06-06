@@ -1,35 +1,43 @@
-<div class="w-screen h-screen flex justify-center items-center">
-  <div class="bg-white rounded-lg p-6">
+<div class="w-screen h-screen flex justify-center items-center" data-theme="light">
+  <div class="bg-gray-100 rounded-lg p-6">
     <h1 class="font-bold text-4xl">Super Admins</h1>
-    <div class="flex justify-between">
-      <%= link_to "Add Admin", new_admin_path, class:"btn" %>
+    <div class="flex justify-between m-6">
+      <%= button_to "Add Admin", new_admin_path,
+          method: :get,
+          data: { turbo_frame: "modal" },
+          class: "btn"
+      %>
       <button class="btn">Delete</button>
     </div>
     <table class="table">
       <thead>
         <tr>
-          <th>
-            First name
-          </th>
-          <th>
-            Last name
-          </th>
-          <th>
-            Email address
-          </th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email address</th>
         </tr>
       </thead>
+      <tbody>
         <% @admins.each do |admin| %>
-          <div class="list-row">
-            <% admin.first_name %>
-            <%= admin.last_name %>
-            <%= admin.email %>
-          </div>
+          <tr>
+            <td><%= admin.first_name %></td>
+            <td><%= admin.last_name %></td>
+            <td><%= admin.email %></td>
+          </tr>
         <% end %>
+      </tbody>
     </table>
-    <div class="flex justify-between">
+    <div class="flex justify-between m-6">
       <%= link_to "Back", preview_branding_path(@branding), class:"btn" %>
       <button class="btn">Finish</button>
     </div>
+  </div>
+</div>
+
+<div class="modal" data-controller="modal" data-modal-target="dialog">
+  <div class="modal-box max-w-max">
+    <turbo-frame id="modal" data-action="turbo:frame-load->modal#open">
+      <%# Modal content will be loaded here %> 
+    </turbo-frame>
   </div>
 </div>

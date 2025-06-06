@@ -14,7 +14,7 @@ class AdminsController < ApplicationController
   def create
     @admin = Admin.new(admin_params)
     if @admin.save
-      redirect_to admins_path(@admin)
+      redirect_to admins_path, notice: "Admin created successfully"
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,6 +35,6 @@ class AdminsController < ApplicationController
     end
 
     def admin_params
-      params.expect(branding: [ :first_name, :last_name, :email ])
+      params.expect(admin: [ :first_name, :last_name, :email ])
     end
 end
