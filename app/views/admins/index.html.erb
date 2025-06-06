@@ -2,7 +2,7 @@
   <div class="bg-gray-100 rounded-lg p-6">
     <h1 class="font-bold text-4xl">Super Admins</h1>
     <div class="flex justify-between m-6">
-      <%= button_to "Add Admin", new_admin_path,
+      <%= button_to "Add Admin", new_admin_path(branding_id: @branding.id),
           method: :get,
           data: { turbo_frame: "modal" },
           class: "btn"
