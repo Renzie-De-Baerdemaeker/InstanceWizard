@@ -25,7 +25,7 @@
               <td><%= admin.last_name %></td>
               <td><%= admin.email %></td>
               <td>
-                <button class="btn">Edit</button>
+                <%= link_to 'Edit', edit_branding_admin_path(@branding, admin), class: "btn" %>
                 <button class="btn">Delete</button>
               </td>
             </tr>
