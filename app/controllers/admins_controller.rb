@@ -8,13 +8,16 @@ class AdminsController < ApplicationController
   end
 
   def new
-    @admin = Admin.new
+    @branding = Branding.find(params[:branding_id])
+    @admin = @branding.admins.new
   end
 
   def create
-    @admin = Admin.new(admin_params)
+    @branding = Branding.find(params[:branding_id])
+    @admin = @branding.admins.new(admin_params)
+
     if @admin.save
-      redirect_to admins_path, notice: "Admin created successfully"
+      redirect_to branding_admins_path(@branding), notice: "Admin created"
     else
       render :new, status: :unprocessable_entity
     end

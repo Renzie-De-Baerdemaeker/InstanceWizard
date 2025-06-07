@@ -12,7 +12,7 @@ class BrandingsController < ApplicationController
 
   def add_colors
     if @branding.update(branding_color_params)
-      redirect_to admins_path(branding_id: @branding.id)
+      redirect_to branding_admins_path(@branding)
     else
       render :preview, status: :unprocessable_entity
     end

@@ -1,8 +1,8 @@
 <div class="w-screen h-screen flex justify-center items-center" data-theme="light">
-  <div class="bg-gray-100 rounded-lg p-6">
+  <div class="bg-gray-100 rounded-lg p-6 w-screen m-30">
     <h1 class="font-bold text-4xl">Super Admins</h1>
     <div class="flex justify-between m-6">
-      <%= button_to "Add Admin", new_admin_path(branding_id: @branding.id),
+      <%= button_to "Add Admin", new_branding_admin_path(@branding),
           method: :get,
           data: { turbo_frame: "modal" },
           class: "btn"
