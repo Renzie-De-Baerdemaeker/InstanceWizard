@@ -1,5 +1,6 @@
 class AdminsController < ApplicationController
-  before_action :set_branding, only: %i[ index new create ]
+  before_action :set_branding
+  before_action :set_admin, only: [ :edit, :update, :destroy, :show ]
   def index
     @admins = @branding.admins
   end
@@ -35,11 +36,18 @@ class AdminsController < ApplicationController
   end
 
   def destroy
+    @admin.destroy
+    redirect_to branding_admins_path(@branding)
   end
 
-    private
+
+  private
     def set_branding
       @branding = Branding.find(params[:branding_id])
+    end
+
+    def set_admin
+      @admin = @branding.admins.find(params[:id])
     end
 
     def admin_params
