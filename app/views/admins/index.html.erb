@@ -1,6 +1,6 @@
 <div class="w-screen h-screen flex justify-center items-center" data-theme="light">
   <div class="bg-gray-100 rounded-lg p-6 w-screen m-30">
-    <h1 class="font-bold text-4xl">Super Admins</h1>
+    <h1 class="font-bold text-4xl m-6">Super Admins</h1>
     <div class="flex justify-between m-6">
       <%= button_to "Add Admin", new_branding_admin_path(@branding),
           method: :get,
@@ -9,24 +9,29 @@
       %>
       <button class="btn">Delete</button>
     </div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>First name</th>
-          <th>Last name</th>
-          <th>Email address</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @admins.each do |admin| %>
+      <table class="table">
+        <thead>
           <tr>
-            <td><%= admin.first_name %></td>
-            <td><%= admin.last_name %></td>
-            <td><%= admin.email %></td>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email address</th>
+            <th>Actions</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @admins.each do |admin| %>
+            <tr>
+              <td><%= admin.first_name %></td>
+              <td><%= admin.last_name %></td>
+              <td><%= admin.email %></td>
+              <td>
+                <button class="btn">Edit</button>
+                <button class="btn">Delete</button>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     <div class="flex justify-between m-6">
       <%= link_to "Back", preview_branding_path(@branding), class:"btn" %>
       <button class="btn">Finish</button>
@@ -34,7 +39,7 @@
   </div>
 </div>
 
-<div class="modal" data-controller="modal" data-modal-target="dialog">
+<div class="modal" data-controller="modal" data-modal-target="dialog" data-theme="light">
   <div class="modal-box max-w-max">
     <turbo-frame id="modal" data-action="turbo:frame-load->modal#open">
       <%# Modal content will be loaded here %> 

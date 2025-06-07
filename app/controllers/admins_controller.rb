@@ -1,23 +1,28 @@
 class AdminsController < ApplicationController
+  before_action :set_branding, only: %i[ index new create ]
   def index
-    @branding = Branding.find(params[:branding_id]) if params[:branding_id]
-    @admins = Admin.all
+    @admins = @branding.admins
   end
 
   def show
   end
 
   def new
-    @branding = Branding.find(params[:branding_id])
     @admin = @branding.admins.new
   end
 
   def create
-    @branding = Branding.find(params[:branding_id])
     @admin = @branding.admins.new(admin_params)
 
     if @admin.save
-      redirect_to branding_admins_path(@branding), notice: "Admin created"
+      respond_to do |format|
+        format.turbo_stream {
+          render turbo_stream: [
+            turbo_stream.action(:refresh, "")
+          ]
+        }
+        format.html { redirect_to branding_admins_path(@branding) }
+      end
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,8 +38,8 @@ class AdminsController < ApplicationController
   end
 
     private
-    def set_admin
-      @admin = Admin.find(params[:id])
+    def set_branding
+      @branding = Branding.find(params[:branding_id])
     end
 
     def admin_params
