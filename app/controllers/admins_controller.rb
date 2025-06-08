@@ -32,8 +32,20 @@ class AdminsController < ApplicationController
   def edit
   end
 
-  def update
+def update
+  if @admin.update(admin_params)
+    respond_to do |format|
+      format.turbo_stream {
+        render turbo_stream: [
+          turbo_stream.action(:refresh, "")
+        ]
+      }
+      format.html { redirect_to branding_admins_path(@branding), notice: "Admin updated" }
+    end
+  else
+    render :edit, status: :unprocessable_entity
   end
+end
 
   def destroy
     @admin.destroy

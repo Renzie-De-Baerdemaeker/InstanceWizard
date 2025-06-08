@@ -13,6 +13,6 @@
     </div>
     <div class="flex justify-between mt-6">
         <button class="btn" type="button" data-action="modal#close">Cancel</button>
-        <%= form.submit "Add", class: "btn" %>
+        <%= form.submit admin.persisted? ? "Update" : "Add", class: "btn" %>
     </div>
 <% end %>

@@ -25,7 +25,11 @@
               <td><%= admin.last_name %></td>
               <td><%= admin.email %></td>
               <td>
-                <%= link_to 'Edit', edit_branding_admin_path(@branding, admin), class: "btn" %>
+                <%= link_to "Edit", edit_branding_admin_path(@branding, admin),
+                  method: :get,
+                  data: { turbo_frame: "modal" },
+                  class: "btn"
+                %>
                 <%= button_to "Delete", branding_admin_path(@branding, admin), 
                 method: :delete, 
                 data: { turbo_confirm: "Are you sure?" }, 
