@@ -42,6 +42,15 @@ class BrandingsController < ApplicationController
     end
   end
 
+  def config_file
+    branding = Branding.find(params[:id])
+    toml_content = ConfigGenerator.generate(branding)
+
+    send_data toml_content,
+              type: "application/toml",
+              filename: "#{branding.name.parameterize}_config.toml"
+  end
+
   private
     def set_branding
       @branding = Branding.find(params[:id])

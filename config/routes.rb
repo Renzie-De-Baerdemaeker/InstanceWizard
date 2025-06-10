@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :brandings do
+    member do
+      get :config_file
+    end
     resources :admins
     member do
       get :preview

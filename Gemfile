@@ -65,3 +65,5 @@ end
 gem "tailwindcss-rails", "~> 4.2"
 
 gem "htmlbeautifier"
+
+gem "toml-rb"

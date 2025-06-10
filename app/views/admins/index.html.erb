@@ -41,13 +41,13 @@
       </table>
     <div class="flex justify-between m-6">
       <%= link_to "Back", preview_branding_path(@branding), class:"btn" %>
-      <button class="btn">Finish</button>
+      <%= link_to "Finish", config_file_branding_path(@branding), class: "btn" %>
     </div>
   </div>
 </div>
 
-<div class="modal" data-controller="modal" data-modal-target="dialog" data-theme="light">
-  <div class="modal-box max-w-max">
+<div class="modal" data-controller="modal" data-modal-target="dialog">
+  <div class="modal-box max-w-max" data-theme="light">
     <turbo-frame id="modal" data-action="turbo:frame-load->modal#open">
       <%# Modal content will be loaded here %> 
     </turbo-frame>
