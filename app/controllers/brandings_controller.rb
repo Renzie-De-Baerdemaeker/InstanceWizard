@@ -1,11 +1,5 @@
 class BrandingsController < ApplicationController
-    before_action :set_branding, only: %i[ show edit update preview add_colors]
-
-  def index
-  end
-
-  def show
-  end
+    before_action :set_branding, only: %i[ update preview add_colors config_file]
 
   def preview
   end
@@ -31,9 +25,6 @@ class BrandingsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
     if @branding.update(branding_params)
       redirect_to @branding
@@ -43,12 +34,11 @@ class BrandingsController < ApplicationController
   end
 
   def config_file
-    branding = Branding.find(params[:id])
-    toml_content = ConfigGenerator.generate(branding)
+    toml_content = ConfigGenerator.generate(@branding)
 
     send_data toml_content,
               type: "application/toml",
-              filename: "#{branding.name.parameterize}_config.toml"
+              filename: "#{@branding.name.parameterize}_config.toml"
   end
 
   private
