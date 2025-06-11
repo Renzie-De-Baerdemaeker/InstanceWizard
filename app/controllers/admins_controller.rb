@@ -1,11 +1,8 @@
 class AdminsController < ApplicationController
   before_action :set_branding
-  before_action :set_admin, only: [ :edit, :update, :destroy, :show ]
+  before_action :set_admin, only: [ :edit, :update, :destroy ]
   def index
     @admins = @branding.admins
-  end
-
-  def show
   end
 
   def new
